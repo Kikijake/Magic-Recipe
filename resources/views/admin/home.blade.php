@@ -10,7 +10,7 @@
     This is Admin Home
     <form action="{{route('logout')}}" method="POST">
         @csrf
-        <button type="submit">Logout</button>
+        <button type="submit">Logout update</button>
     </form>
 </body>
 </html>
