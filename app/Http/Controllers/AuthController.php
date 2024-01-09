@@ -17,9 +17,9 @@ class AuthController extends Controller
 
     public function roleCheck(){
         if(Auth::user()->role == 'admin'){
-            return redirect()->route('admin#home');
+            return redirect()->route('admin#main');
         }else{
-            return redirect()->route('user#home');
+            return redirect()->route('user#main');
 
         }
     }

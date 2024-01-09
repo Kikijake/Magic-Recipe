@@ -22,7 +22,7 @@ Route::middleware('auth')->group( function () {
     Route::middleware('adminAuth')->group( function () {
         Route::group(['prefix' => 'admin'],function () {
             // ADMIN/HOME
-            Route::get('home',[AdminController::class,'home'])->name('admin#home');
+            Route::get('main',[AdminController::class,'main'])->name('admin#main');
 
         });
     });
@@ -31,7 +31,7 @@ Route::middleware('auth')->group( function () {
     Route::middleware('userAuth')->group( function () {
         Route::group(['prefix' => 'user'],function () {
             // USER/HOME
-            Route::get('home',[UserController::class,'home'])->name('user#home');
+            Route::get('main',[UserController::class,'main'])->name('user#main');
 
         });
     });
