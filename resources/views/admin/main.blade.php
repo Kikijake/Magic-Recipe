@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    This is Admin Home
+    This is Admin Main
     <form action="{{route('logout')}}" method="POST">
         @csrf
         <button type="submit">Logout</button>
