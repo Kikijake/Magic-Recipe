@@ -1,14 +1,33 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 
 // BEFORE AUTH
 Route::get('/',function () {return redirect()->route('auth');});
-Route::get('auth',function () {return view('auth');})->name('auth');
+Route::get('auth',function () {
+    if(User::get()->count() == 0){
+
+        User::insert([
+            [
+                'name'=>'yehtetsan',
+                'email'=>'yehtetsan@gmail.com',
+                'role' =>'user',
+                'password'=>Hash::make('useruser')
+            ],
+            [
+                'name'=>'admin',
+                'email'=>'admin@gmail.com',
+                'role' =>'admin',
+                'password'=>Hash::make('adminadmin')
+            ]]
+        );
+    };
+    return view('auth');
+})->name('auth');
 
 // REGISTER AND LOGIN
 Route::get('registerPage',[AuthController::class,'registerPage'])->name('registerPage');
